@@ -16,7 +16,9 @@ public class GameController : MonoBehaviour
 	public GameObject player;
 
 	public static bool isDead;
-
+	//These are your Scene names. Make sure to set them in the Inspector window
+    public string m_MyFirstScene, m_MySecondScene;
+    Scene m_Scene;
 //------------------------------------------------------------
 //						MAIN METHODS
 //------------------------------------------------------------
@@ -29,6 +31,10 @@ public class GameController : MonoBehaviour
 
 	void Update() 
 	{
+		//Return the current Active Scene in order to get the current Scene's name
+        m_Scene = SceneManager.GetActiveScene();
+		
+
 		if(isDead)
 		{
 			dead();
@@ -48,6 +54,7 @@ public class GameController : MonoBehaviour
 	public void restartGame()
     {
 		isDead=false;
-        SceneManager.LoadScene("SampleScene"); //Carga de nuevo la escena principal
+        SceneManager.LoadScene(m_Scene.name); //Carga de nuevo la escena principal
+		Debug.Log("Escena:"+ m_Scene.name);
     }
 }
