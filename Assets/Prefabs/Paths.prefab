@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4076596871815588}
   - component: {fileID: 212528838604400822}
   - component: {fileID: 50352806751582700}
-  - component: {fileID: 114572058015623514}
   - component: {fileID: 60390689089410440}
+  - component: {fileID: 114572058015623514}
   m_Layer: 0
   m_Name: Paths
   m_TagString: Untagged

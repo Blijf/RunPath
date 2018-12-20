@@ -11,10 +11,16 @@ public class PlayerPathController : MonoBehaviour {
 		
 		if(other.gameObject.CompareTag("Player"))
 		{
-			Debug.Log(" ha salido el player");
 			GameController.isDead=true;
 		}
 
+	}
+	void OnTriggerStay2D(Collider2D other)
+	{
+				if(other.gameObject.CompareTag("Player"))
+		{
+			GameController.isDead=false;
+		}
 	}
 	
 }

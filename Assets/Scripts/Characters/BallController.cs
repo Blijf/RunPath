@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallController : MonoBehaviour {
+public class BallController : MonoBehaviour 
+{
 
 //------------------------------------------------------------
 //						VARIABLES

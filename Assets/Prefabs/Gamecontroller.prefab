@@ -54,3 +54,6 @@ MonoBehaviour:
   playButton: {fileID: 0}
   playText: {fileID: 0}
   player: {fileID: 0}
+  nameScene: Level2
+  m_MyFirstScene: 
+  m_MySecondScene: 
