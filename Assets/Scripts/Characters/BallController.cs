@@ -13,7 +13,6 @@ public class BallController : MonoBehaviour
     private Rigidbody2D rb2d;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
 	private float moveHorizontal;
 
-
 //------------------------------------------------------------
 //						MAIN METHODS
 //------------------------------------------------------------
@@ -30,6 +29,7 @@ public class BallController : MonoBehaviour
 	{
 		//movimiento
 		 moveHorizontal = InputManager.MainHorizontal();
+
 	}
 
     //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
@@ -51,5 +51,6 @@ public class BallController : MonoBehaviour
 		{
 			transform.Translate( -transform.right*speedHorizontal*Time.fixedDeltaTime);
 		}
+
 	}
 }

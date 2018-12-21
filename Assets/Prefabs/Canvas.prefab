@@ -193,7 +193,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114111783552543952, guid: 9e4ddd53febd4a94aa6e79935cc5691c,
+          type: 2}
         m_MethodName: restartGame
         m_Mode: 1
         m_Arguments:
