@@ -47,7 +47,7 @@ public class GameController : MonoBehaviour
 	{
 		playText.text="PLAY";
 		playButton.gameObject.SetActive(true);
-		Destroy(player);
+		player.SetActive(false);
 
 	}
 	public void restartGame()

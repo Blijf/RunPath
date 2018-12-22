@@ -9,13 +9,13 @@ public class BallControllerPhysics : MonoBehaviour
 //						VARIABLES
 //------------------------------------------------------------
 	[Header("Características")]
-	public float speed;
-
+    public float speedUpStart;             //Floating point variable to store the player's movement speed.
+    public float speedHorizontal;             //Floating point variable to store the player's movement speed.
 	[Header("Otros")]
 	protected Joystick joystick;
 
     private Rigidbody2D rb2d;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
-	private float moveHorizontal,moveVertical;
+	private float moveHorizontal,moveVertical,currentUpSpeed;
 	Vector2 vectorMove;
 	Quaternion quartenionRot;
 
@@ -30,6 +30,7 @@ public class BallControllerPhysics : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D> ();
 
 		joystick= FindObjectOfType<Joystick>();
+		currentUpSpeed=speedUpStart;
 	}
 	
 
@@ -53,15 +54,22 @@ public class BallControllerPhysics : MonoBehaviour
 	void move()
 	{
 
-		if(moveHorizontal!=0f || moveVertical!=0f || joystick.Horizontal!=0f|| joystick.Vertical!=0f)
-		{
-			vectorMove.Set(joystick.Horizontal+moveHorizontal,joystick.Vertical+moveVertical);//la y es 0 ya que no se movera verticalmente
+		// if(moveHorizontal!=0f || moveVertical!=0f || joystick.Horizontal!=0f|| joystick.Vertical!=0f)
 
-			// Debug.Log("Joystick H: "+joystick.Horizontal+"-Joystick V: "+joystick.Vertical);
-			vectorMove=vectorMove.normalized*speed*Time.fixedDeltaTime;
+			vectorMove.Set(joystick.Horizontal+moveHorizontal,currentUpSpeed);//la y es 0 ya que no se movera verticalmente
+			if(moveHorizontal!=0f || joystick.Horizontal!=0 )
+			{
+				currentUpSpeed=0.0f;
+			}
+			else
+			{
+				currentUpSpeed=speedUpStart;
+			}
+			// vectorMove.Set(speedHorizontal*(joystick.Horizontal+moveHorizontal),speedUp);//la y es 0 ya que no se movera verticalmente
 
+			// Debug.Log("Joystick H: "+speedHorizontal*(joystick.Horizontal+moveHorizontal)+"Joystick H: "+speedUp*Time.fixedDeltaTime);
+			vectorMove=vectorMove.normalized*Time.fixedDeltaTime;	
 			rb2d.AddForce(vectorMove);
-		}
-
+		
 	}
 }
