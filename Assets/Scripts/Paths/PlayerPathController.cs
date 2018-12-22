@@ -12,7 +12,6 @@ public class PlayerPathController : MonoBehaviour {
 		if(other.gameObject.CompareTag("Player"))
 		{
 			GameController.isDead=true;
-			Debug.Log("Exit, player is dead"+GameController.isDead);
 		}
 
 	}
@@ -21,7 +20,6 @@ public class PlayerPathController : MonoBehaviour {
 		if(other.gameObject.CompareTag("Player"))
 		{
 			GameController.isDead=false;
-			Debug.Log("Stay, player is dead"+GameController.isDead);
 		}
 	}
 
@@ -30,7 +28,6 @@ public class PlayerPathController : MonoBehaviour {
 		if(other.gameObject.CompareTag("Player"))
 		{
 			GameController.isDead=false;
-			Debug.Log("Enter, player is dead"+GameController.isDead);
 		}
 	}
 	
