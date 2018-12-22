@@ -33,7 +33,6 @@ public class BallControllerPhysics : MonoBehaviour
 	}
 	
 
-
 	void Update()
 	{
 		//movimiento
@@ -42,10 +41,30 @@ public class BallControllerPhysics : MonoBehaviour
 
 	}
 
-    //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
     void FixedUpdate()
     {
 		move();
+	}
+	
+	//TRIGGERS
+	void OnTriggerExit2D(Collider2D other)
+	{
+		
+			if(other.gameObject.CompareTag("Scenary"))
+			{
+				GameController.isDead=true;
+				Debug.Log("Esta muerto, onExit");
+			}
+
+	}
+
+	void OnTriggerStay2D(Collider2D other)
+	{
+		if(other.gameObject.CompareTag("Scenary"))
+		{
+			GameController.isDead=false;
+			Debug.Log("Esta vivo, onStay");
+		}
 	}
 //------------------------------------------------------------
 //						METHODS
