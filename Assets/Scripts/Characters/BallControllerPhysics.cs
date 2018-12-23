@@ -10,13 +10,20 @@ public class BallControllerPhysics : MonoBehaviour
 //------------------------------------------------------------
 	[Header("Características")]
     public float speed;             //Floating point variable to store the player's movement speed.
-	[Header("Otros")]
+	[Header("Pasos de Caminos")]
+	public string plantaDown;
+	public string plantaUP;
+	public Collider2D lineaRoja_plantaUp;
+	public Collider2D lineaRoja_plantaDown;
+	
+	//_________________________________________________________
+	private  SpriteRenderer spriteRenderer;
 	protected Joystick joystick;
-
     private Rigidbody2D rb2d;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
 	private float moveHorizontal,moveVertical,currentUpSpeed;
 	Vector2 vectorMove;
 	Quaternion quartenionRot;
+	string currentPlanta;
 
 
 //------------------------------------------------------------
@@ -27,9 +34,10 @@ public class BallControllerPhysics : MonoBehaviour
 	{
 		//Get and store a reference to the Rigidbody2D component so that we can access it.
         rb2d = GetComponent<Rigidbody2D> ();
-
 		joystick= FindObjectOfType<Joystick>();
+		spriteRenderer=GetComponent<SpriteRenderer>();
 		currentUpSpeed=speed;
+		currentPlanta="null";
 	}
 	
 
@@ -46,25 +54,60 @@ public class BallControllerPhysics : MonoBehaviour
 		move();
 	}
 	
-	//TRIGGERS
-	void OnTriggerExit2D(Collider2D other)
-	{
-		
-			if(other.gameObject.CompareTag("Scenary"))
-			{
-				GameController.isDead=true;
-				Debug.Log("Esta muerto, onExit");
-			}
+	// //TRIGGERS
+	// void OnTriggerExit2D(Collider2D other)
+	// {
+	// 	//Si sale del camino 1 0 2
+	// 	if(other.gameObject.CompareTag("Camino"))
+	// 	{
+	// 		GameController.isDead=true;
+	// 		Debug.Log("DEAD!, FUERA DE: "+ other.gameObject.name);
+	// 	}
 
-	}
+	// }
 
-	void OnTriggerStay2D(Collider2D other)
+	// void OnTriggerStay2D(Collider2D other)
+	// {
+
+	// 	if(other.gameObject.CompareTag("Camino"))
+	// 	{
+	// 		GameController.isDead=false;
+	// 		Debug.Log("ALIVE!, ESTA EN: "+other.gameObject.name);
+	// 	}
+	// }
+
+	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.gameObject.CompareTag("Scenary"))
+		switch(other.gameObject.name)
 		{
-			GameController.isDead=false;
-			Debug.Log("Esta vivo, onStay");
+			case "ActivadorCambioPiso":
+				currentPlanta=plantaDown;
+				spriteRenderer.sortingLayerName=plantaDown;
+				spriteRenderer.sortingOrder=1;
+				lineaRoja_plantaUp.enabled=false;
+				GameController.isDead=false;
+				break;
+				
+			case "Solido_1":
+				currentPlanta=plantaUP;
+				spriteRenderer.sortingLayerName=plantaUP;//Cambiamos de layer
+				spriteRenderer.sortingOrder=4;
+				lineaRoja_plantaUp.enabled=true;//activamos el collider de la varandilla para la planta Up
+				GameController.isDead=false;
+				break;
+
+			case "Solido_2":
+				currentPlanta=plantaUP;
+				spriteRenderer.sortingLayerName=plantaDown;//Cambiamos de layer
+				spriteRenderer.sortingOrder=1;
+				lineaRoja_plantaDown.enabled=true;//activamos el collider de la varandilla para la planta Down
+				GameController.isDead=false;
+				break;
+			
 		}
+		Debug.Log("ALIVE!, CAMBIO DE PISO :"+currentPlanta);
+
+
 	}
 //------------------------------------------------------------
 //						METHODS

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Scenary
+  - Camino
   layers:
   - Default
   - TransparentFX
@@ -15,11 +16,11 @@ TagManager:
   - UI
   - 
   - 
-  - Background
-  - Scenary
-  - PlayerZone
-  - 
-  - 
+  - Background-0
+  - Camino-1
+  - PlayerZone-2
+  - Camino-3
+  - PlayerZone-4
   - 
   - 
   - 
@@ -43,12 +44,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
+  - name: Background-0
     uniqueID: 2812545797
     locked: 0
-  - name: Scenary
+  - name: Camino-1
     uniqueID: 1162206853
     locked: 0
-  - name: PlayerZone
+  - name: PlayerZone-2
+    uniqueID: 62960851
+    locked: 0
+  - name: Camino-3
     uniqueID: 673948837
+    locked: 0
+  - name: PlayerZone-4
+    uniqueID: 3078638623
     locked: 0

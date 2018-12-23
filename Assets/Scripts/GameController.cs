@@ -48,6 +48,7 @@ public class GameController : MonoBehaviour
 		playText.text="PLAY";
 		playButton.gameObject.SetActive(true);
 		player.SetActive(false);
+		isDead=false;
 
 	}
 	public void restartGame()
