@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class outOfPath : MonoBehaviour {
 
-	string lastCollider;
 	//TRIGGERS
 	void OnTriggerExit2D(Collider2D other)
 	{
 		//Si sale del camino y ademas no esta en otro camino
-		if(other.gameObject.CompareTag("Player")&&this.name==lastCollider)
+		if(other.gameObject.CompareTag("Player")&&this.name==BallControllerPhysics.currentFloor)
 		{
 			
 			GameController.isDead=true;
@@ -20,11 +19,11 @@ public class outOfPath : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D other)
 	{
-		lastCollider=this.name;
 		if(other.gameObject.CompareTag("Player"))
 		{
 			GameController.isDead=false; 
 			Debug.Log("ALIVE!, ESTA EN: "+ this.name);
 		}
 	}
+	
 }
