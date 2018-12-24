@@ -15,6 +15,7 @@ public class BallControllerPhysics : MonoBehaviour
 	public string plantaUP;
 	public Collider2D lineaRoja_plantaUp;
 	public Collider2D lineaRoja_plantaDown;
+	public Collider2D barrera;
 	
 	//_________________________________________________________
 	private  SpriteRenderer spriteRenderer;
@@ -85,6 +86,7 @@ public class BallControllerPhysics : MonoBehaviour
 				spriteRenderer.sortingLayerName=plantaDown;
 				spriteRenderer.sortingOrder=1;
 				lineaRoja_plantaUp.enabled=false;
+				barrera.enabled=false;
 				GameController.isDead=false;
 				break;
 				
@@ -115,15 +117,31 @@ public class BallControllerPhysics : MonoBehaviour
 	void move()
 	{
 
-		if(moveHorizontal!=0f || moveVertical!=0f || joystick.Horizontal!=0f|| joystick.Vertical!=0f)
+		if(joystick==null)
 		{
-			vectorMove.Set(joystick.Horizontal+moveHorizontal,joystick.Vertical+moveVertical);//la y es 0 ya que no se movera verticalmente
+			if(moveHorizontal!=0f || moveVertical!=0f )
+			{
+				vectorMove.Set(moveHorizontal,moveVertical);//la y es 0 ya que no se movera verticalmente
 
-			// Debug.Log("Joystick H: "+joystick.Horizontal+"-Joystick V: "+joystick.Vertical);
-			vectorMove=vectorMove.normalized*speed*Time.fixedDeltaTime;
+				// Debug.Log("Joystick H: "+joystick.Horizontal+"-Joystick V: "+joystick.Vertical);
+				vectorMove=vectorMove.normalized*speed*Time.fixedDeltaTime;
 
-			rb2d.AddForce(vectorMove);
+				rb2d.AddForce(vectorMove);
+			}
 		}
+		else
+		{
+			if(moveHorizontal!=0f || moveVertical!=0f || joystick.Horizontal!=0f|| joystick.Vertical!=0f)
+			{
+				vectorMove.Set(joystick.Horizontal+moveHorizontal,joystick.Vertical+moveVertical);//la y es 0 ya que no se movera verticalmente
+
+				// Debug.Log("Joystick H: "+joystick.Horizontal+"-Joystick V: "+joystick.Vertical);
+				vectorMove=vectorMove.normalized*speed*Time.fixedDeltaTime;
+
+				rb2d.AddForce(vectorMove);
+			}
+		}
+
 		
 	}
 }
