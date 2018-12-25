@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BallControllerPhysics : MonoBehaviour 
 {
@@ -11,6 +12,8 @@ public class BallControllerPhysics : MonoBehaviour
 	[Header("Características")]
     public float speed;             //Floating point variable to store the player's movement speed.
 	
+	[Header("Otros")]
+	public Text countDownText; 
 	//_________________________________________________________
 	protected Joystick joystick;
     private Rigidbody2D rb2d;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
@@ -83,10 +86,13 @@ public class BallControllerPhysics : MonoBehaviour
 	void move()
 	{
 
+
 		if(joystick==null)
 		{
 			if(moveHorizontal!=0f || moveVertical!=0f )
 			{
+				countDownText.enabled=false;//cuando se mueve desactivamos el texto de la cuenta atras
+
 				vectorMove.Set(moveHorizontal,moveVertical);//la y es 0 ya que no se movera verticalmente
 
 				// Debug.Log("Joystick H: "+joystick.Horizontal+"-Joystick V: "+joystick.Vertical);
@@ -97,8 +103,11 @@ public class BallControllerPhysics : MonoBehaviour
 		}
 		else
 		{
+			
 			if(moveHorizontal!=0f || moveVertical!=0f || joystick.Horizontal!=0f|| joystick.Vertical!=0f)
 			{
+				countDownText.enabled=false;//cuando se mueve desactivamos el texto de la cuenta atras
+
 				vectorMove.Set(joystick.Horizontal+moveHorizontal,joystick.Vertical+moveVertical);//la y es 0 ya que no se movera verticalmente
 
 				// Debug.Log("Joystick H: "+joystick.Horizontal+"-Joystick V: "+joystick.Vertical);

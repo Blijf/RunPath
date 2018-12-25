@@ -12,14 +12,18 @@ public class GameController : MonoBehaviour
 	[Header("UI")]
 	public Button playButton;
 	public Text playText;
+	public Text countDownText; 
+	public float timeLeft;
+
 	[Header("OBJECTS")]
 	public GameObject player;
-	[Header("COSETAS")]
+
+	[Header("ESCENAS")]
 	public string nameScene;
 	//These are your Scene names. Make sure to set them in the Inspector window
     public string m_MyFirstScene, m_MySecondScene;
 
-	public static bool isDead;
+	public static bool isDead,isFinish;
 
     Scene m_Scene;
 //------------------------------------------------------------
@@ -29,7 +33,10 @@ public class GameController : MonoBehaviour
 	{
 		playText.text = "";
 		isDead=false;
+		isFinish=false;
 		playButton.gameObject.SetActive(false);
+		player.GetComponent<BallControllerPhysics>().enabled=false;//el jugador no se mueve
+
 	}
 
 	void Update() 
@@ -38,6 +45,11 @@ public class GameController : MonoBehaviour
 		{
 			dead();
 		}
+		if(isFinish)
+		{
+			finish();
+		}
+		cuentaAtras();
 	}
 
 //------------------------------------------------------------
@@ -45,15 +57,48 @@ public class GameController : MonoBehaviour
 //------------------------------------------------------------
 	void dead()
 	{
-		playText.text="PLAY";
+		playText.text="PLAY!";
 		playButton.gameObject.SetActive(true);
 		player.SetActive(false);
 		isDead=false;
 
 	}
+
+	void finish()
+	{
+		
+		playText.text="FINISH?";
+		playButton.gameObject.SetActive(true);
+		player.SetActive(false);
+	}
+	
 	public void restartGame()
     {
 		isDead=false;
         SceneManager.LoadScene(nameScene); //Carga de nuevo la escena principal
+    }
+
+	void cuentaAtras()
+	{
+		timeLeft-= Time.deltaTime;
+		TimersGame.waitToGo();
+
+		if(timeLeft<=1)//cuenta acabada
+		{
+			StartCoroutine(waitToGo());
+		}
+		else
+		{
+			countDownText.text=Mathf.Round(timeLeft).ToString();
+
+		}
+	}
+    IEnumerator waitToGo()
+    {
+        yield return new WaitForSeconds(0);
+		countDownText.text= "GO!";
+		player.GetComponent<BallControllerPhysics>().enabled=true;//el jugador se mueve
+		timeLeft=0;
+
     }
 }

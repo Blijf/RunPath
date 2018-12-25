@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class outOfPath : MonoBehaviour {
+public class OutOfPath : MonoBehaviour {
 
 	//TRIGGERS
 	void OnTriggerExit2D(Collider2D other)

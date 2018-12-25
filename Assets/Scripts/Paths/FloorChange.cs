@@ -32,6 +32,7 @@ public class FloorChange : MonoBehaviour
 					//cambiamos el layer del propio objeto
 					this.gameObject.layer= 10;
 				break;
+				
 				//PlayerZone-2 (piso inferior)-> cambio a piso superior
 				case 10:
 					spriteRenderer.sortingLayerName=plantaUP;

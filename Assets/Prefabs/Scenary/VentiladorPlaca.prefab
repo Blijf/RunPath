@@ -37,8 +37,9 @@ GameObject:
   - component: {fileID: 212503623745693658}
   - component: {fileID: 58915376629892636}
   - component: {fileID: 50216242236028816}
+  - component: {fileID: 233159285996221742}
   m_Layer: 12
-  m_Name: Punto
+  m_Name: Motor
   m_TagString: Scenary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +56,6 @@ GameObject:
   - component: {fileID: 212355126509720230}
   - component: {fileID: 61121770208884222}
   - component: {fileID: 50406699286834066}
-  - component: {fileID: 233593144398571266}
   m_Layer: 12
   m_Name: Placa
   m_TagString: Scenary
@@ -276,21 +276,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!233 &233593144398571266
+--- !u!233 &233159285996221742
 HingeJoint2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1841678753138862}
+  m_GameObject: {fileID: 1461733041251596}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 50216242236028816}
+  m_EnableCollision: 1
+  m_ConnectedRigidBody: {fileID: 50406699286834066}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.016375642, y: 0.007250493}
-  m_ConnectedAnchor: {x: -0.0031192254, y: -0.004454385}
+  m_ConnectedAnchor: {x: -0.029902227, y: -0.0003021776}
   m_UseMotor: 1
   m_Motor:
     m_MotorSpeed: -500
