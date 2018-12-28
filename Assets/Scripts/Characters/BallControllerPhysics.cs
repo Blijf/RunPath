@@ -20,7 +20,6 @@ public class BallControllerPhysics : MonoBehaviour
 	private float moveHorizontal,moveVertical,currentUpSpeed;
 	Vector2 vectorMove;
 	Quaternion quartenionRot;
-	string currentPlanta;
 	public static string currentFloor;
 
 //------------------------------------------------------------
@@ -33,7 +32,6 @@ public class BallControllerPhysics : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D> ();
 		joystick= FindObjectOfType<Joystick>();
 		currentUpSpeed=speed;
-		currentPlanta="null";
 	}
 	
 
@@ -75,9 +73,6 @@ public class BallControllerPhysics : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		currentFloor= other.gameObject.name;
-
-		Debug.Log("ALIVE!, CAMBIO DE PISO :"+currentPlanta+" currentCollider: "+other.gameObject.name);
-
 
 	}
 //------------------------------------------------------------

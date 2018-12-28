@@ -4,7 +4,7 @@ using System.Collections;
 public static class TimersGame
 {
 
-    public static IEnumerator waitToGo()
+    public static IEnumerator waitInit()
     {
         yield return new WaitForSeconds(4);
     }

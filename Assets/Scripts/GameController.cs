@@ -80,8 +80,8 @@ public class GameController : MonoBehaviour
 
 	void cuentaAtras()
 	{
+		TimersGame.waitInit();
 		timeLeft-= Time.deltaTime;
-		TimersGame.waitToGo();
 
 		if(timeLeft<=1)//cuenta acabada
 		{
