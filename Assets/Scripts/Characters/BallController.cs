@@ -8,10 +8,11 @@ public class BallController : MonoBehaviour
 //------------------------------------------------------------
 //						VARIABLES
 //------------------------------------------------------------
-    public float speedUp;             //Floating point variable to store the player's movement speed.
-    public float speedHorizontal;             //Floating point variable to store the player's movement speed.
-    private Rigidbody2D rb2d;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
+    public float speedUp;            
+    public float speedHorizontal;             
+    private Rigidbody2D rb2d;       
 	private float moveHorizontal;
+	Vector2 inDirection, inNormal,outDirection; //fijarme en el esquema de los vectores de colisión 
 
 //------------------------------------------------------------
 //						MAIN METHODS
@@ -37,20 +38,21 @@ public class BallController : MonoBehaviour
     {
 		move();
 	}
+
+	private void OnCollisionEnter2D(Collision2D other) 
+	{
+		inNormal=other.contacts[0].normal;
+		outDirection= Vector2.Reflect(inDirection,inNormal);
+		inDirection=outDirection;
+		speedUp=-speedUp;
+	}
 //------------------------------------------------------------
 //						METHODS
 //------------------------------------------------------------
 	void move()
 	{
-		transform.Translate( transform.up*speedUp*Time.fixedDeltaTime);
-		if(moveHorizontal!=0f&&moveHorizontal>0)//derecha
-		{
-			transform.Translate( transform.right*speedHorizontal*Time.fixedDeltaTime);
-		}
-		if(moveHorizontal!=0f&&moveHorizontal<0)//izquierda
-		{
-			transform.Translate( -transform.right*speedHorizontal*Time.fixedDeltaTime);
-		}
-
+		inDirection.Set(inDirection.x,speedUp*Time.fixedDeltaTime);
+		// inDirection=inDirection.normalized*speedUp*Time.fixedDeltaTime;
+		rb2d.AddForce(inDirection);
 	}
 }
