@@ -9,11 +9,12 @@ public class BallController : MonoBehaviour
 //						VARIABLES
 //------------------------------------------------------------
     public float speed;         
-	public enum direction {Up, Down,Left,Right}  
+	public enum Direction {Up, Down,Left,Right}  
     private Rigidbody2D rb2d;       
-	private float moveHorizontal;
+	private float moveHorizontal,moveVertical;
 	Vector2 inDirection, inNormal,outDirection; //fijarme en el esquema de los vectores de colisión 
 
+	float angleDirection;
 //------------------------------------------------------------
 //						MAIN METHODS
 //------------------------------------------------------------
@@ -23,7 +24,7 @@ public class BallController : MonoBehaviour
 		//Get and store a reference to the Rigidbody2D component so that we can access it.
         rb2d = GetComponent<Rigidbody2D> ();
 		//Dirección del player al iniciar la partida
-		inDirection.Set(0,1);
+		inDirection.Set(1,0);
 	}
 	
 
@@ -32,6 +33,7 @@ public class BallController : MonoBehaviour
 	{
 		//movimiento
 		 moveHorizontal = InputManager.MainHorizontal();
+		 moveVertical = InputManager.MainVertical();
 
 	}
 
@@ -45,9 +47,11 @@ public class BallController : MonoBehaviour
 	{
 		inNormal=other.contacts[0].normal;
 		outDirection= Vector2.Reflect(inDirection,inNormal);
+
 		inDirection=outDirection;
-	
-		Debug.Log(inDirection.normalized);
+
+
+		Debug.Log(angleDirection);
 
 	}
 //------------------------------------------------------------
@@ -55,6 +59,14 @@ public class BallController : MonoBehaviour
 //------------------------------------------------------------
 	void move()
 	{
-		rb2d.velocity= inDirection.normalized*speed*Time.deltaTime;
+		//Cuando se mueve el player no afecta el rebote.
+		if(moveHorizontal!=0||moveVertical!=0)
+		{
+			//Añadimos el movimiento horizontal del jugador
+			inDirection.Set(moveHorizontal,moveVertical);
+		}
+		// rb2d.velocity= inDirection.normalized*speed*Time.deltaTime;
+		rb2d.AddForce(inDirection*speed*Time.deltaTime);
+		// transform.rotation = Quaternion.LookRotation(inDirection,Vector3.back);
 	}
 }

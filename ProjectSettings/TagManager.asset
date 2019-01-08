@@ -16,22 +16,22 @@ TagManager:
   - UI
   - 
   - 
-  - Background-0
-  - Camino-1
-  - PlayerZone-2
-  - Camino-3
-  - PlayerZone-4
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Background-->0
+  - '[-2] Piso-->1'
+  - '[-2] ContenidoPiso-->2'
+  - '[-2] TechoPiso-->3'
+  - '[-1] Piso-->4'
+  - '[-1] ContenidoPiso-->5'
+  - '[-1] TechoPiso-->6'
+  - '[0] Piso-->7'
+  - '[0] ContenidoPiso-->8'
+  - '[0] TechoPiso-->9'
+  - '[1] Piso-->10'
+  - '[1] ContenidoPiso-->11'
+  - '[1] TechoPiso-->12'
+  - '[2] Piso-->13'
+  - '[2] ContenidoPiso-->14'
+  - '[2] TechoPiso-->15'
   - 
   - 
   - 
@@ -47,15 +47,48 @@ TagManager:
   - name: Background-0
     uniqueID: 2812545797
     locked: 0
-  - name: Camino-1
+  - name: '[-2] Piso-->1'
     uniqueID: 1162206853
     locked: 0
-  - name: PlayerZone-2
+  - name: '[-2] ContenidoPiso-->2'
     uniqueID: 62960851
     locked: 0
-  - name: Camino-3
+  - name: '[-2] TechoPiso-->3'
     uniqueID: 673948837
     locked: 0
-  - name: PlayerZone-4
+  - name: '[-1] Piso-->4'
     uniqueID: 3078638623
+    locked: 0
+  - name: '[-1] ContenidoPiso-->5'
+    uniqueID: 1768688211
+    locked: 0
+  - name: '[-1] TechoPiso-->6'
+    uniqueID: 2928610911
+    locked: 0
+  - name: '[0] Piso-->7'
+    uniqueID: 524744479
+    locked: 0
+  - name: '[0] ContenidoPiso-->8'
+    uniqueID: 969232243
+    locked: 0
+  - name: '[0] TechoPiso-->9'
+    uniqueID: 537460841
+    locked: 0
+  - name: '[1] Piso-->10'
+    uniqueID: 3854677121
+    locked: 0
+  - name: '[1] ContenidoPiso-->11'
+    uniqueID: 2353676943
+    locked: 0
+  - name: '[1] TechoPiso-->12'
+    uniqueID: 1199748417
+    locked: 0
+  - name: '[2] Piso-->13'
+    uniqueID: 1113673151
+    locked: 0
+  - name: '[2] ContenidoPiso-->14'
+    uniqueID: 426577111
+    locked: 0
+  - name: '[2] TechoPiso-->15'
+    uniqueID: 3965689583
     locked: 0
