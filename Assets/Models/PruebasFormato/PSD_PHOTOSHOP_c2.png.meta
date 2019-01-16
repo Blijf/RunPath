@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3bef3abeb91be2c4a850f33f766ec6cc
+guid: 7310aee4ccd043b4292ce7add61245df
 labels:
 - ImportX1
 TextureImporter:
@@ -77,7 +77,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 26383bcbbab8a6045a1f5771acd5b02f
+    spriteID: 9c07ebf32aeecf24d83b2b7a73fa4b50
     vertices: []
     indices: 
     edges: []

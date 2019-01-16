@@ -14,18 +14,10 @@ public class GameController : MonoBehaviour
 	public Text playText;
 	public Text countDownText; 
 	public float timeLeft;
-
-	[Header("OBJECTS")]
-	public GameObject player;
-
-	[Header("ESCENAS")]
-	public string nameScene;
-	//These are your Scene names. Make sure to set them in the Inspector window
-    public string m_MyFirstScene, m_MySecondScene;
-
+//_____________________________________________________________________________
 	public static bool isDead,isFinish;
-
-    Scene m_Scene;
+	GameObject player;
+	Scene currentScene;
 //------------------------------------------------------------
 //						MAIN METHODS
 //------------------------------------------------------------
@@ -34,8 +26,11 @@ public class GameController : MonoBehaviour
 		playText.text = "";
 		isDead=false;
 		isFinish=false;
+		player= GameObject.FindGameObjectWithTag("Player");
+		currentScene=SceneManager.GetActiveScene();//nombre de la escena actual
+		
 		playButton.gameObject.SetActive(false);
-		player.GetComponent<BallForwardController>().enabled=false;//el jugador no se mueve
+		// player.GetComponent<BallForwardController>().enabled=false;//el jugador no se mueve, esperando cuenta atras
 
 	}
 
@@ -45,11 +40,11 @@ public class GameController : MonoBehaviour
 		{
 			dead();
 		}
-		if(isFinish)
-		{
-			finish();
-		}
-		cuentaAtras();
+		// if(isFinish)
+		// {
+		// 	finish();
+		// }
+		// cuentaAtras();
 	}
 
 //------------------------------------------------------------
@@ -64,6 +59,7 @@ public class GameController : MonoBehaviour
 
 	}
 
+//finalización del level
 	void finish()
 	{
 		
@@ -75,9 +71,10 @@ public class GameController : MonoBehaviour
 	public void restartGame()
     {
 		isDead=false;
-        SceneManager.LoadScene(nameScene); //Carga de nuevo la escena principal
+        SceneManager.LoadScene(currentScene.name); //Carga de nuevo la escena principal
     }
 
+//Cuenta atras al empezar la pantalla
 	void cuentaAtras()
 	{
 		TimersGame.waitInit();
