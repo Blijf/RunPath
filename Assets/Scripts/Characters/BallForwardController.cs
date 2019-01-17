@@ -53,12 +53,12 @@ public class BallForwardController : MonoBehaviour
 
 	// }
 
-	void OnCollisionEnter2D(Collision2D other)
-	{
-		//cuando se produce una colisión deja de avanzar
-		currentUpSpeed=.0f;
+	// void OnCollisionEnter2D(Collision2D other)
+	// {
+	// 	//cuando se produce una colisión deja de avanzar
+	// 	currentUpSpeed=.0f;
 
-	}
+	// }
 	
 //------------------------------------------------------------
 //						METHODS
@@ -67,12 +67,13 @@ public class BallForwardController : MonoBehaviour
 	{
 		// countDownText.enabled=false;//cuando se mueve desactivamos el texto de la cuenta atras
 		
-		currentUpSpeed=speedVertical;
+		// currentUpSpeed=speedVertical;
 		vectorMove.Set(moveHorizontal*speedHorizontal,currentUpSpeed);//la y es 0 ya que no se movera verticalmente
 
 		vectorMove=vectorMove*Time.fixedDeltaTime;
 
-		rb2d.velocity= vectorMove;
+		// rb2d.velocity= vectorMove;
+		rb2d.MovePosition(rb2d.position+vectorMove);
 		// rb2d.AddForce(vectorMove);
 	}
 }
