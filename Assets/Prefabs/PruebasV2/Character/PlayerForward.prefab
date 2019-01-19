@@ -91,7 +91,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1688949617819948}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 269f5f26d869fba44929788ece751a1b, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -118,7 +118,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &114688725607797328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,6 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8bc0c6feb58d3b4ea715a27f3e9946f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedVertical: 3.5
-  speedHorizontal: 3
+  speedVertical: 4
+  speedHorizontal: 5
   countDownText: {fileID: 0}
