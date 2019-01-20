@@ -208,21 +208,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5210847641735303169, guid: 429f18f13d75cdc4e800a00661ff7abc,
-        type: 3}
-      propertyPath: m_Mass
-      value: 0.14760005
-      objectReference: {fileID: 0}
-    - target: {fileID: 5210847641735303168, guid: 429f18f13d75cdc4e800a00661ff7abc,
-        type: 3}
-      propertyPath: m_ConnectedRigidBody
-      value: 
-      objectReference: {fileID: 7572646869435655385}
-    - target: {fileID: 5210847641735303168, guid: 429f18f13d75cdc4e800a00661ff7abc,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: 0.00069999695
-      objectReference: {fileID: 0}
     - target: {fileID: 1527425376, guid: 429f18f13d75cdc4e800a00661ff7abc, type: 3}
       propertyPath: m_Name
       value: Pared
@@ -238,6 +223,21 @@ PrefabInstance:
     - target: {fileID: 1527425378, guid: 429f18f13d75cdc4e800a00661ff7abc, type: 3}
       propertyPath: m_SortingOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210847641735303169, guid: 429f18f13d75cdc4e800a00661ff7abc,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.14760005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210847641735303168, guid: 429f18f13d75cdc4e800a00661ff7abc,
+        type: 3}
+      propertyPath: m_ConnectedRigidBody
+      value: 
+      objectReference: {fileID: 7572646869435655385}
+    - target: {fileID: 5210847641735303168, guid: 429f18f13d75cdc4e800a00661ff7abc,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.00069987774
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 429f18f13d75cdc4e800a00661ff7abc, type: 3}
@@ -331,16 +331,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5714260163253213434, guid: 136fe198c59824c4b9ea554b80ccd683,
-        type: 3}
-      propertyPath: m_ConnectedRigidBody
-      value: 
-      objectReference: {fileID: 7572646869685346869}
-    - target: {fileID: 5714260163253213434, guid: 136fe198c59824c4b9ea554b80ccd683,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -0.000207901
-      objectReference: {fileID: 0}
     - target: {fileID: 961890969, guid: 136fe198c59824c4b9ea554b80ccd683, type: 3}
       propertyPath: m_Name
       value: Pared
@@ -356,6 +346,16 @@ PrefabInstance:
     - target: {fileID: 961890971, guid: 136fe198c59824c4b9ea554b80ccd683, type: 3}
       propertyPath: m_SortingOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5714260163253213434, guid: 136fe198c59824c4b9ea554b80ccd683,
+        type: 3}
+      propertyPath: m_ConnectedRigidBody
+      value: 
+      objectReference: {fileID: 7572646869685346869}
+    - target: {fileID: 5714260163253213434, guid: 136fe198c59824c4b9ea554b80ccd683,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.000207901
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 136fe198c59824c4b9ea554b80ccd683, type: 3}
