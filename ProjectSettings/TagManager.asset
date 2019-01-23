@@ -32,7 +32,7 @@ TagManager:
   - '[2] Piso-->13'
   - '[2] ContenidoPiso-->14'
   - '[2] TechoPiso-->15'
-  - 
+  - Player-->16
   - 
   - 
   - 
@@ -91,4 +91,7 @@ TagManager:
     locked: 0
   - name: '[2] TechoPiso-->15'
     uniqueID: 3965689583
+    locked: 0
+  - name: Player-->16
+    uniqueID: 3440611317
     locked: 0
