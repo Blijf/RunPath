@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Scenary
-  - Camino
+  - DeadZone
   layers:
   - Default
   - TransparentFX

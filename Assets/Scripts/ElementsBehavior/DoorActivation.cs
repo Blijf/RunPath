@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonActivation : MonoBehaviour
+public class DoorActivation : MonoBehaviour
 {
     public GameObject doorToOpen;//puerta que se quiere abrir
     Collider2D collider2D;
