@@ -7,6 +7,13 @@ public class TileTrapActivation : MonoBehaviour
     public List<GameObject> tiles;
     public int timeNextSpawn;
 
+    void Start() 
+    {
+        for (int i = 0; i < tiles.Count; i++)
+        {
+            tiles[i].SetActive(false);
+        }
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player"))

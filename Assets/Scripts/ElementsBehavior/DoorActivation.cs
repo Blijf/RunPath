@@ -5,14 +5,14 @@ using UnityEngine;
 public class DoorActivation : MonoBehaviour
 {
     public GameObject doorToOpen;//puerta que se quiere abrir
-    Collider2D collider2D;
+    Collider2D coll;
     Animator animator;
     void Start()
     {
-        collider2D= doorToOpen.GetComponent<Collider2D>();
+        coll= doorToOpen.GetComponent<Collider2D>();
         animator= doorToOpen.GetComponent<Animator>();
         animator.enabled=false;
-        collider2D.isTrigger=false;
+        coll.isTrigger=false;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -20,7 +20,7 @@ public class DoorActivation : MonoBehaviour
         if(other.CompareTag("Player"))
         {
           animator.enabled=true;
-          collider2D.isTrigger=true;
+          coll.isTrigger=true;
             
         }
     }
