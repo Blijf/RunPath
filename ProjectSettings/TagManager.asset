@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Scenary
   - DeadZone
+  - Camino
   layers:
   - Default
   - TransparentFX
@@ -92,6 +93,6 @@ TagManager:
   - name: '[2] TechoPiso-->15'
     uniqueID: 3965689583
     locked: 0
-  - name: Player-->16
-    uniqueID: 3440611317
+  - name: Player-->1
+    uniqueID: 668789399
     locked: 0
