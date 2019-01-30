@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BridgeActivation : MonoBehaviour
+public class ObjectToTargetActivation : MonoBehaviour
 {
-    public Transform objectToMoveTransform;
+    public List<Transform> objsToMoveTransforms;
     public Transform targetTransform;
     public float speed;
     bool start;
@@ -17,8 +17,12 @@ public class BridgeActivation : MonoBehaviour
     {
         if(start)
         {
-            float step= speed*Time.deltaTime;
-            objectToMoveTransform.position=Vector2.MoveTowards(objectToMoveTransform.position, targetTransform.position, step);
+            for(int i=0; i<objsToMoveTransforms.Count;i++)
+            {
+
+                float step= speed*Time.deltaTime;
+                objsToMoveTransforms[i].position=Vector2.MoveTowards(objsToMoveTransforms[i].position, targetTransform.position, step);
+            }
         }
     }
     void OnTriggerEnter2D(Collider2D other)
