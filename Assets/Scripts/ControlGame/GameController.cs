@@ -54,7 +54,8 @@ public class GameController : MonoBehaviour
 	{
 		playText.text="PLAY!";
 		playButton.gameObject.SetActive(true);
-		player.SetActive(false);
+		player.GetComponent<SpriteRenderer>().enabled=false;
+		player.GetComponent<TrailRenderer>().enabled=false;
 		isDead=false;
 
 	}
