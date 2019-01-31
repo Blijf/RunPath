@@ -53,12 +53,19 @@ public class BallForwardController : MonoBehaviour
 
 	// }
 
-	// void OnCollisionEnter2D(Collision2D other)
-	// {
+	void OnCollisionEnter2D(Collision2D other)
+	{
 	// 	//cuando se produce una colisión deja de avanzar
 	// 	currentUpSpeed=.0f;
+		
+		//Se reproduce el sonido donde ha colisionado
+		AudioSource audio= other.gameObject.GetComponent<AudioSource>();
+		if(audio!=null)
+		{
+			audio.Play();
+		}
 
-	// }
+	}
 	
 //------------------------------------------------------------
 //						METHODS
