@@ -56,6 +56,7 @@ public class GameController : MonoBehaviour
 		playButton.gameObject.SetActive(true);
 		player.GetComponent<SpriteRenderer>().enabled=false;
 		player.GetComponent<TrailRenderer>().enabled=false;
+		player.GetComponent<BallForwardController>().enabled=false;
 		isDead=false;
 
 	}

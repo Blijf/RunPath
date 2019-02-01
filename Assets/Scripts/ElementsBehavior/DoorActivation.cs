@@ -10,13 +10,11 @@ public class DoorActivation : MonoBehaviour
     //PRIVATES
     Collider2D coll;
     Animator animator;
-    AudioSource audioSource;
 
     void Start()
     {
         coll= doorToOpen.GetComponent<Collider2D>();
         animator= doorToOpen.GetComponent<Animator>();
-        audioSource= GetComponent<AudioSource>();
         animator.enabled=false;
         coll.isTrigger=false;
     }
@@ -27,7 +25,6 @@ public class DoorActivation : MonoBehaviour
         {
           animator.enabled=true;
           coll.isTrigger=true;
-          audioSource.Play();
             
         }
     }

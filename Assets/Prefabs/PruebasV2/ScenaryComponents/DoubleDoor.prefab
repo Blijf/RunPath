@@ -177,7 +177,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: -0.25}
-  m_ConnectedAnchor: {x: 0, y: 0.00069999695}
+  m_ConnectedAnchor: {x: 0, y: 0.0007009506}
   m_UseMotor: 1
   m_Motor:
     m_MotorSpeed: -100
@@ -197,11 +197,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243613604852097282, guid: 193e65bdcfd1fff4f8f046fb6142f26f,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 34d1f0708788f47428338f22f07b6c4b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9bca928c93eac214cb63655eab2c3209, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -835,7 +835,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.26}
-  m_ConnectedAnchor: {x: -0.0015002489, y: -0.000207901}
+  m_ConnectedAnchor: {x: -0.0015002191, y: -0.000207901}
   m_UseMotor: 1
   m_Motor:
     m_MotorSpeed: 100
@@ -855,11 +855,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243613604852097282, guid: 193e65bdcfd1fff4f8f046fb6142f26f,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 34d1f0708788f47428338f22f07b6c4b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9bca928c93eac214cb63655eab2c3209, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

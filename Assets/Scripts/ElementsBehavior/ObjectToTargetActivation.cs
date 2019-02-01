@@ -6,12 +6,14 @@ public class ObjectToTargetActivation : MonoBehaviour
 {
     public List<Transform> objsToMoveTransforms;
     public Transform targetTransform;
+    public GameObject falseBackGround; //deadzone del hueco que va a ir el puente
     public float speed;
     bool start;
 
     void Start() 
     {
         start=false;
+        
     }
     void Update()
     {
@@ -29,7 +31,10 @@ public class ObjectToTargetActivation : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            start=true;   
+            start=true; 
+            
+            if(falseBackGround!=null)
+            falseBackGround.SetActive(false);
         }
     }
 

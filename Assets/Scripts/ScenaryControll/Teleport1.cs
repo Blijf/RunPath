@@ -6,10 +6,14 @@ public class Teleport1 : MonoBehaviour {
 
 public GameObject portal;
 GameObject player;
+BallForwardController ballForwardController;
+
 
 	void Start ()
 	{
 		player= GameObject.FindGameObjectWithTag("Player");
+		ballForwardController=player.GetComponent<BallForwardController>();
+
 	}
 	
 	void Update () 
@@ -22,14 +26,18 @@ GameObject player;
 	{
 		if(other.gameObject.CompareTag("Player"))
 		{
+			//desactivamos el movimiento
+			ballForwardController.enabled=false;
 			StartCoroutine(teleport());
 		}
 	}
 
 	IEnumerator teleport()
 	{
-		yield return new WaitForSeconds(0f);
+		yield return new WaitForSeconds(1f);
 		player.transform.position= new Vector2 (portal.transform.position.x,portal.transform.position.y);
+		ballForwardController.enabled=true;
+
 	}
 }
 

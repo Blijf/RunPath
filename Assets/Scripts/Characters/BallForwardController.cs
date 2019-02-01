@@ -66,6 +66,16 @@ public class BallForwardController : MonoBehaviour
 		}
 
 	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		//Se reproduce el sonido donde ha entrado.
+		AudioSource audio= other.gameObject.GetComponent<AudioSource>();
+		if(audio!=null)
+		{
+			audio.Play();
+		}
+	}
 	
 //------------------------------------------------------------
 //						METHODS
