@@ -9,16 +9,19 @@ public class BallForwardController : MonoBehaviour
 //------------------------------------------------------------
 //						VARIABLES
 //------------------------------------------------------------
-	[Header("Características")]
-    public float speedVertical;
-    public float speedHorizontal;
+	[Header("Parámetros de Velocidad")]
+    public float speedVertical=10;
+    public float speedHorizontalMax=9;
+    public float speedHorizontal=1;
+	public float speedreductionToCollision=0.25f;
+	public float accelerationHorizontal=0.40f;
 	
 	[Header("Otros")]
 	public Text countDownText; 
 	//_________________________________________________________
     private Rigidbody2D rb2d;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
-	private float moveHorizontal,currentUpSpeed;
-	Vector2 vectorMove, vectorMoveH;
+	private float moveHorizontal,currentUpSpeed, currentHSpeed;
+	Vector2 vectorMove, vectorMoveForce;
 	Quaternion quartenionRot;
 	public static string currentFloor;
 
@@ -31,6 +34,7 @@ public class BallForwardController : MonoBehaviour
 		//Get and store a reference to the Rigidbody2D component so that we can access it.
         rb2d = GetComponent<Rigidbody2D> ();
 		currentUpSpeed= speedVertical;
+		currentHSpeed= speedHorizontal;
 	} 	
 	
 
@@ -43,20 +47,15 @@ public class BallForwardController : MonoBehaviour
 
     void FixedUpdate()
     {
+		// Debug.Log("V: "+ currentUpSpeed);
+		// Debug.Log("H: "+ currentHSpeed);
 		move();
 	}
 	
-
-	// void OnTriggerEnter2D(Collider2D other)
-	// {
-	// 	currentFloor= other.gameObject.name;
-
-	// }
-
+	//COLLISIONS
+	// _______________________________________
 	void OnCollisionEnter2D(Collision2D other)
 	{
-	// 	//cuando se produce una colisión deja de avanzar
-	// 	currentUpSpeed=.0f;
 		
 		//Se reproduce el sonido donde ha colisionado
 		AudioSource audio= other.gameObject.GetComponent<AudioSource>();
@@ -67,6 +66,26 @@ public class BallForwardController : MonoBehaviour
 
 	}
 
+	// void OnCollisionStay2D(Collision2D other) 
+	// {
+	// 	//cuando se produce una colisión deja de avanzar
+	// 	if(currentUpSpeed>=0)
+	// 	currentUpSpeed-=speedreductionToCollision;
+
+	// 	//le damos un plus a la velocidad horizontal
+	// }
+
+
+	// void OnCollisionExit2D(Collision2D other)
+	// {
+	// 	if(currentUpSpeed<=speedVertical)
+	// 	{
+	// 		currentUpSpeed+=speedreductionToCollision;
+	// 	}
+	// }
+
+	//TRIGGERS
+	// _______________________________________
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		//Se reproduce el sonido donde ha entrado.
@@ -84,16 +103,33 @@ public class BallForwardController : MonoBehaviour
 	{
 		// countDownText.enabled=false;//cuando se mueve desactivamos el texto de la cuenta atras
 		
-		// currentUpSpeed=speedVertical;
-		// vectorMove.Set(moveHorizontal*speedHorizontal,currentUpSpeed);
-		vectorMove.Set(0.0f,currentUpSpeed);
-		vectorMoveH.Set(moveHorizontal*speedHorizontal*1000,0.0f);
+		//...............................
+		//VARIACIÓN DE LOS VECTORES
+		//................................
 
+		//Se aumenta le velocidad INCREMENTALMENTE
+		if(moveHorizontal!=0)
+		{
+			//limitar la velocidad
+			if(currentHSpeed<=speedHorizontalMax)
+			currentHSpeed+=accelerationHorizontal;
+		}
+		else
+		{
+			currentHSpeed=speedHorizontal;
+		}
+		vectorMove.Set(moveHorizontal*currentHSpeed,currentUpSpeed);
+		// vectorMoveForce.Set(moveHorizontal*currentHSpeed*1000,0.0f);
+
+		
 		vectorMove=vectorMove*Time.fixedDeltaTime;
-		vectorMoveH=vectorMoveH*Time.fixedDeltaTime;
+		// vectorMoveForce=vectorMoveForce*Time.fixedDeltaTime;
 
+		//...............................
+		//MÉTODOS FÍSICAS
+		//................................
 		// rb2d.velocity= vectorMove;
 		rb2d.MovePosition(rb2d.position+vectorMove);
-		rb2d.AddForce(vectorMoveH);
+		// rb2d.AddForce(vectorMoveForce,ForceMode2D.Force);
 	}
 }
