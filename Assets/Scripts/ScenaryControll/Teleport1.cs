@@ -7,15 +7,14 @@ public class Teleport1 : MonoBehaviour {
 public GameObject portal;
 public GameObject deadZoneCamera;
 GameObject player;
-BallForwardController ballForwardController;
+BallForwardForceController ballForwardForceController;
 
 
 
 	void Start ()
 	{
 		player= GameObject.FindGameObjectWithTag("Player");
-		ballForwardController=player.GetComponent<BallForwardController>();
-
+		ballForwardForceController=player.GetComponent<BallForwardForceController>();
 	}
 	
 	void Update () 
@@ -26,10 +25,11 @@ BallForwardController ballForwardController;
 	
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.gameObject.CompareTag("Player"))
+		if(other.gameObject==player)
 		{
 			//desactivamos el movimiento y la zona de muerte de la cámara
-			ballForwardController.enabled=false;
+			// ballForwardForceController.enabled=false; //se puede modificar la velocidad
+			player.SetActive(false);
 			deadZoneCamera.SetActive(false);
 			StartCoroutine(teleport());
 		}
@@ -37,9 +37,10 @@ BallForwardController ballForwardController;
 
 	IEnumerator teleport()
 	{
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(0.05f);
 		player.transform.position= new Vector2 (portal.transform.position.x,portal.transform.position.y);
-		ballForwardController.enabled=true;
+		// ballForwardForceController.enabled=true; 
+		player.SetActive(true);
 		deadZoneCamera.SetActive(true);
 		
 

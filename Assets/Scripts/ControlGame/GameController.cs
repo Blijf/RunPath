@@ -56,7 +56,7 @@ public class GameController : MonoBehaviour
 		playButton.gameObject.SetActive(true);
 		player.GetComponent<SpriteRenderer>().enabled=false;
 		player.GetComponent<TrailRenderer>().enabled=false;
-		player.GetComponent<BallForwardController>().enabled=false;
+		player.GetComponent<BallForwardForceController>().enabled=false;
 		isDead=false;
 
 	}
@@ -96,7 +96,7 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(0);
 		countDownText.text= "GO!";
-		player.GetComponent<BallForwardController>().enabled=true;//el jugador se mueve
+		player.GetComponent<BallForwardForceController>().enabled=true;//el jugador se mueve
 		timeLeft=0;
 
     }
