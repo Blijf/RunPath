@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4112106205552524}
   - component: {fileID: 4402995866028377832}
   - component: {fileID: 114367286152141182}
+  - component: {fileID: 390123664}
   m_Layer: 0
   m_Name: Gamecontroller
   m_TagString: Untagged
@@ -43,7 +44,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243363684125725320, guid: defa2518406aa2645852db63235798ea,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: f18a0d44e6c0416438b45dd33ba4cfb2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2fa8e69daac58a148a0a73042148a501, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -145,3 +146,17 @@ MonoBehaviour:
   playText: {fileID: 0}
   countDownText: {fileID: 0}
   timeLeft: 0
+--- !u!114 &390123664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937200694418058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5569c274d4e51324aaae8e6f20d08376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectSwipeOnlyAfterRelease: 0
+  minDistanceForSwipe: 20

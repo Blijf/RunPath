@@ -16,6 +16,7 @@ public static class InputManager
 	{
 		return Input.GetAxisRaw ("Vertical");
 	}
+
 	//-------------------------------------------------
 	//					BOTONES
 	//-------------------------------------------------
