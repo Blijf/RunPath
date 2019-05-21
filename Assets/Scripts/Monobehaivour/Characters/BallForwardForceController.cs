@@ -13,6 +13,9 @@ public class BallForwardForceController : MonoBehaviour
     public float accelerationVertical;
     public float accelerationHorizontal;
 	
+	[Header("Habilidades")]
+	public Item revivir;
+
 	[Header("Otros")]
 	public Text countDownText; 
 	//_________________________________________________________
@@ -24,8 +27,7 @@ public class BallForwardForceController : MonoBehaviour
 	private Quaternion quartenionRot;
 	private float screenWidth;
 	public static string currentFloor;
-	
-
+	private Inventory inventory;
 //------------------------------------------------------------
 //						MAIN METHODS
 //------------------------------------------------------------
@@ -55,7 +57,7 @@ public class BallForwardForceController : MonoBehaviour
 	// _______________________________________
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		
+
 		//Se reproduce el sonido donde ha colisionado
 		AudioSource audio= other.gameObject.GetComponent<AudioSource>();
 		if(audio!=null)
@@ -87,6 +89,15 @@ public class BallForwardForceController : MonoBehaviour
 	// _______________________________________
 	void OnTriggerEnter2D(Collider2D other)
 	{
+		//HABILIDADES
+		switch(other.gameObject.name)
+		{
+			case "Revivir":
+					inventory.addItem(revivir);
+					Debug.Log("Revivir");
+			break;
+
+		}
 		//Se reproduce el sonido donde ha entrado.
 		AudioSource audio= other.gameObject.GetComponent<AudioSource>();
 		if(audio!=null)
@@ -127,10 +138,10 @@ public class BallForwardForceController : MonoBehaviour
 			vertical = InputManager.MainVertical();
 		//Check if we are running on iOS, Android, Windows Phone 8 or Unity iPhone
 		#elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
-			// horizontal = InputManager.MainHorizontal();
+			horizontal = InputManager.MainHorizontal();
 			// swipeJoystick();
 			// accelerationJoystick();
-			splitScreenJoystick();
+			// splitScreenJoystick();
 
 		#endif //End of mobile platform dependendent compilation section started above with #elif
 

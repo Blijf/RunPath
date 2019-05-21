@@ -24,6 +24,8 @@ public class BallForwardController : MonoBehaviour
 	Vector2 vectorMove, vectorMoveForce;
 	Quaternion quartenionRot;
 	public static string currentFloor;
+	public Item item;
+	private Inventory inventory;
 
 //------------------------------------------------------------
 //						MAIN METHODS
@@ -65,30 +67,20 @@ public class BallForwardController : MonoBehaviour
 		}
 
 	}
-
-	// void OnCollisionStay2D(Collision2D other) 
-	// {
-	// 	//cuando se produce una colisión deja de avanzar
-	// 	if(currentUpSpeed>=0)
-	// 	currentUpSpeed-=speedreductionToCollision;
-
-	// 	//le damos un plus a la velocidad horizontal
-	// }
-
-
-	// void OnCollisionExit2D(Collision2D other)
-	// {
-	// 	if(currentUpSpeed<=speedVertical)
-	// 	{
-	// 		currentUpSpeed+=speedreductionToCollision;
-	// 	}
-	// }
-
 	//TRIGGERS
 	// _______________________________________
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		//Se reproduce el sonido donde ha entrado.
+		//HABILIDADES
+		switch(other.gameObject.name)
+		{
+			case "Life":
+					inventory.addItem(item);
+			break;
+
+		}
+
+		//AUDIOS. Se reproduce el sonido donde ha entrado.
 		AudioSource audio= other.gameObject.GetComponent<AudioSource>();
 		if(audio!=null)
 		{
