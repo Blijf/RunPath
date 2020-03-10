@@ -9,7 +9,7 @@
         {
             "name": "Unity Editor",
             "type": "unity",
-            "path": "/D:/UNITY/SnakePoisson/RunPath/Library/EditorInstance.json",
+            "path": "/d:/UNITY/SnakePoisson/RunPath/Library/EditorInstance.json",
             "request": "launch"
         },
         {
