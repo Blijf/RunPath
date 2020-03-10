@@ -1,14 +1,24 @@
 fileFormatVersion: 2
 guid: 0fece54d39d6fa243929e1154b210d25
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Bola_Referencia_0
-    21300002: Bola_Referencia_1
-    21300004: Bola_Referencia_2
-    21300006: Bola_Referencia_3
-    21300008: Bola_Referencia_4
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Bola_Referencia_0
+  - first:
+      213: 21300002
+    second: Bola_Referencia_1
+  - first:
+      213: 21300004
+    second: Bola_Referencia_2
+  - first:
+      213: 21300006
+    second: Bola_Referencia_3
+  - first:
+      213: 21300008
+    second: Bola_Referencia_4
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,7 +73,7 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 1024
     resizeAlgorithm: 0
@@ -74,7 +84,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 1024
     resizeAlgorithm: 0
@@ -85,7 +96,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 1024
     resizeAlgorithm: 0
@@ -96,7 +108,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 1024
     resizeAlgorithm: 0
@@ -107,6 +120,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -126,6 +140,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 71b241210c9c01246b3a9689dd81f01a
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -146,6 +161,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 22de6bb80ff850046b84de6075d612be
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -166,6 +182,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 8422cc47e047afe47a5c55199cf07daf
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
@@ -186,6 +203,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 17a9ef0edf4d49842bf327ad41e6fcc9
+      internalID: 21300006
       vertices: []
       indices: 
       edges: []
@@ -206,6 +224,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7f1b114b1eafb10479361c1688fab6b8
+      internalID: 21300008
       vertices: []
       indices: 
       edges: []
@@ -214,10 +233,12 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: c4dfad14c0f6b154cb35ae6bd353b1ba
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
